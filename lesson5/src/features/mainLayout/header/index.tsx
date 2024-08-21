@@ -22,7 +22,7 @@ const Header = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(data);
+  console.log(data[1].role, 'sagol');
   return (
     <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
@@ -86,29 +86,58 @@ const Header = () => {
           id="mobile-menu-2"
         >
           <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+
+
             {navbarElement &&
               navbarElement.map((element, index) => (
-                <li key={index}>
-                  <Link
-                    href={element.url}
-                    className={clsx(
-                      "py-2 pl-3 pr-4  rounded-lg flex items-center gap-1 transition duration-500  ",
-                      path === element.url
-                        ? "bg-white text-black"
-                        : "text-white"
-                    )}
-                  >
-                    {data[1].role === element.role ? (
-                      <>
-                        <span className="text-[15px]">{element.name}</span>
-                        <i className={element.icon}></i>
-                      </>
-                    ) : (
-                      ""
-                    )}
-                  </Link>
-                </li>
+                data[1].role === element.role ? (
+                  <li key={index}>
+                    <Link
+                      href={element.url}
+                      className={clsx(
+                        "py-2 pl-3 pr-4  rounded-lg flex items-center gap-1 transition duration-500  ",
+                        path === element.url
+                          ? "bg-black text-white"
+                          : "text-white"
+                      )}
+                    >
+                      
+                          <span className="text-[15px]">{element.name}</span>
+                          <i className={element.icon}></i>
+                 
+                     
+                    </Link>
+                  </li>
+                ) : (null)
+
+
+
+
+                // <li key={index}>
+                //   <Link
+                //     href={element.url}
+                //     className={clsx(
+                //       "py-2 pl-3 pr-4  rounded-lg flex items-center gap-1 transition duration-500  ",
+                //       path === element.url
+                //         ? "bg-black text-white"
+                //         : "text-white"
+                //     )}
+                //   >
+                //     {data[1].role === element.role ? (
+                //       <>
+                //         <span className="text-[15px]">{element.name}</span>
+                //         <i className={element.icon}></i>
+                //       </>
+                //     ) : (
+                //     null
+                //     )}
+                //   </Link>
+                // </li>
               ))}
+
+
+
+
           </ul>
         </div>
       </div>
